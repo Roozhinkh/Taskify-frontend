@@ -11,7 +11,7 @@ const AddTask = ({ onTaskCreated }) => {
         const newTask = { title, description, due_date: dueDate };
         try {
             const response = await createTask(newTask);
-            onTaskCreated(response.task); // Skicka den nyskapade uppgiften till föräldern
+            onTaskCreated(response.task);
         }   catch (error) {
             console.error('Error creating task:', error);
         }

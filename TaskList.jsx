@@ -13,7 +13,7 @@ const TaskList = ({ tasks }) => {
                 >
                     <h3 className="text-xl font-semibold">{task.title}</h3>
                     npx --yes tailwindcss init -p
-                     <p className="text-sm text-gray-400 mt-1">
+                        <p className="text-sm text-gray-400 mt-1">
                         Deadline: {task.deadline}
                         </p>
                         <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-300">
