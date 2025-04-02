@@ -26,7 +26,7 @@ const TaskForm = ({ onAdd }) => {
                 type="text"
                 placeholder="Titel"
                 value={title}
-                onChange={(e) => setDeadline.Title(e.target.value)}
+                onChange={(e) => setDeadline(e.target.value)}
                 className="w-full mb-3 p-2 border rounded"
                 required 
             />
