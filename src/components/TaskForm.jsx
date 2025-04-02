@@ -26,7 +26,7 @@ const TaskForm = ({ onAdd }) => {
                 type="text"
                 placeholder="Titel"
                 value={title}
-                onChange={(e) => setDeadline(e.target.value)}
+                onChange={(e) => setTitle(e.target.value)}
                 className="w-full mb-3 p-2 border rounded"
                 required 
             />
@@ -39,7 +39,7 @@ const TaskForm = ({ onAdd }) => {
             <input
                 type="date"
                 value={deadline}
-                onChange={(e) => setDeadline(e.target.vakue)}
+                onChange={(e) => setDeadline(e.target.value)}
                 className="w-full mb-3 p-2 border rounded"
             />
             <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">

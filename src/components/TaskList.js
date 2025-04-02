@@ -34,7 +34,7 @@ const TaskList = () => {
                     <li key={task.id}>
                         <strong>{task.title}</strong><br />
                         Description: {task.description}<br />
-                        Due Date: {task.due_date}<br />
+                        Due Date: {task.deadline}<br />
                         Status: {task.completed ? 'Completed' : 'Pending'}<br />
                         <button onClick={() => handleDelete(task.id)}>Delete</button>
                     </li>
