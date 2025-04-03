@@ -12,6 +12,7 @@ const Header = () => {
                     <Link to="/" className="nav-link">Hem</Link>
                     <Link to="/tasks" className="nav-link">Mina Uppgifter</Link>
                     <Link to="/add-task" className="nav-link">Lägg till uppgift</Link>
+                    <Link to="/contact" className="nav-link">Kontakta oss</Link>
                 </nav>
             </div>
         </header>
