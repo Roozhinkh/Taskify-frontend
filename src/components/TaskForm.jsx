@@ -1,48 +1,60 @@
 import React, { useState } from "react";
 
 const TaskForm = ({ onAdd }) => {
-    const [title, setTitle] = useState("");
-    const [description, setDescription] = useState("");
-    const [deadline, setDeadline] = useState("");
+    const [title, setTitle] = useState('');
+    const [description, setDescription] = useState('');
+    const [deadline, setDeadline] = useState('');
+    const [completed, setCompleted] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const newTask = {
-            id: Date.now(),
-            title,
-            description,
-            deadline,
-        };
+
+        const newTask = { title, description, deadline, completed };
+
         onAdd(newTask);
-        setTitle("");
-        setDescription("");
-        setDeadline("");
+
+        setTitle('');
+        setDescription('');
+        setDeadline('');
+        setCompleted(false);
     };
 
     return (
-        <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl shadow-md mb-6 max-w-2x1 mx-auto">
-            <h2 className="text-xl font-bold mb-4">Lägg till ny uppgift</h2>
+        <form onSubmit={handleSubmit} className="bg-gray-800 text-white p-8 rounded-3xl shadow-lg max-w-xl mx-auto mt-8">
+            <h2 className="text-3xl font-bold text-center mb-6">Lägg till en ny uppgift</h2>
             <input
                 type="text"
                 placeholder="Titel"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full mb-3 p-2 border rounded"
-                required 
+                required
+                className="w-full p-4 mb-4 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-green-400"
             />
             <textarea
                 placeholder="Beskrivning"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="w-full mb-3 p-2 border rounded"
+                className="w-full p-4 mb-4 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-green-400"
             />
             <input
-                type="date"
+                type="datetime-local"
                 value={deadline}
                 onChange={(e) => setDeadline(e.target.value)}
-                className="w-full mb-3 p-2 border rounded"
+                className="w-full p-4 mb-4 bg-gray-700 border border-gray-600 rounded-lg text-white focus:ring-2 focus:ring-green-400"
             />
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+            <label className="flex items-center text-white mb-4">
+                <input
+                    type="checkbox"
+                    checked={completed}
+                    onChange={() => setCompleted(!completed)}
+                    className="mr-2"
+                />
+                Markera som klar
+            </label>
+            <button
+                type="submit"
+                className="w-full py-3 bg-green-600 text-white rounded-xl hover:bg-green-500 transition-all duration-300"
+            >
                 Lägg till uppgift
             </button>
         </form>

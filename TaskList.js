@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { getTasks, deleteTask } from './api.js'; // Adjust the import path as necessary
+import { getTasks, deleteTask } from './api.js';
 
 const TaskList = () => {
     const [tasks, setTasks] = useState([]);
