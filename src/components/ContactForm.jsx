@@ -5,9 +5,29 @@ const ContactForm = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
 
-    const handleSubmit = (e) => {
+    const handleSubmit =  async (e) => {
         e.preventDefault();
-        console.log({ name, email, message });
+        try {
+            const res = await fetch("http://localhost:5000/api/contact/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, email, message }),
+            });
+            
+            if (res.ok) {
+                setStatus("Tack! Ditt meddelande har skickats.");
+                setName("");
+                setEmail("");
+                setMessage("");
+            } else {
+                const data = await res.json();
+                setStatus(data.message || "Ett fel uppstod. Försök igen.");
+            }
+        } catch (err) {
+            setStatus("Något gick fel vid anslutning till servern.");
+        }
     };
 
     return (
