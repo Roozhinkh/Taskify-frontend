@@ -5,6 +5,7 @@ const TaskForm = ({ onAdd }) => {
     const [description, setDescription] = useState('');
     const [deadline, setDeadline] = useState('');
     const [completed, setCompleted] = useState(false);
+    const [error, setError] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,11 +18,15 @@ const TaskForm = ({ onAdd }) => {
         setDescription('');
         setDeadline('');
         setCompleted(false);
+        setError(null);
     };
 
     return (
         <form onSubmit={handleSubmit} className="bg-gray-800 text-white p-8 rounded-3xl shadow-lg max-w-xl mx-auto mt-8">
             <h2 className="text-3xl font-bold text-center mb-6">Lägg till en ny uppgift</h2>
+
+            {error && <p className="text-red-400 text-center mb-4">{error}</p>}
+
             <input
                 type="text"
                 placeholder="Titel"

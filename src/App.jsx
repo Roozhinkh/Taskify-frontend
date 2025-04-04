@@ -4,8 +4,8 @@ import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList"; 
 import Header from "./components/Header"; 
 import StartPage from "./components/StartPage"; 
-import Footer from "./components/Footer";
 import ContactForm from "./components/ContactForm";
+import SearchTasksPage from "./components/SearchTasksPage";
 
 const App = () => {
     const [tasks, setTasks] = useState([]);
@@ -30,6 +30,7 @@ const App = () => {
                     <Route path="/add-task" element={<TaskForm onAdd={handleAddTask} />} />
                     <Route path="/tasks" element={<TaskList tasks={tasks} onComplete={handleCompleteTask} />} />
                     <Route path="/contact" element={<ContactForm />} />
+                    <Route path="/search" element={<SearchTasksPage />} />
                 </Routes>
             </div>
         </Router>
