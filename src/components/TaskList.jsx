@@ -4,11 +4,10 @@ import { updatetask, deletetask } from "../services/userApi";
 const TaskList = ({ tasks, onUpdate, onDelete }) => {
     const handleUpdate = async (taskId) => {
         const updatedTask = {
-            completed: true, // Exempel: Uppdatera till "klar"
+            completed: true,
         };
 
         try {
-            // Här anropar vi onUpdate från TaskPage för att uppdatera uppgiften
             onUpdate(taskId, updatedTask); 
         } catch (err) {
             console.error("Error updating task:", err);
@@ -17,7 +16,6 @@ const TaskList = ({ tasks, onUpdate, onDelete }) => {
 
     const handleDelete = async (taskId) => {
         try {
-            // Här anropar vi onDelete från TaskPage för att ta bort uppgiften
             onDelete(taskId); 
         } catch (err) {
             console.error("Error deleting task:", err);
